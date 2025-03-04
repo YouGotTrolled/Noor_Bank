@@ -32,6 +32,7 @@ public class Noor extends Application {
         });
         scene.setOnMouseReleased((MouseEvent event) -> stage.setOpacity(1));
         stage.initStyle(StageStyle.TRANSPARENT);
+        scene.getStylesheets().add(getClass().getResource("fontS.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
