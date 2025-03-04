@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.noor_bank.mainController">
+   <children>
+      <Button minHeight="144.0" minWidth="75.0" mnemonicParsing="false" />
+      <Button layoutY="144.0" minHeight="144.0" minWidth="75.0" mnemonicParsing="false" />
+      <Button layoutY="288.0" minHeight="144.0" minWidth="75.0" mnemonicParsing="false" />
+      <Button layoutY="432.0" minHeight="144.0" minWidth="75.0" mnemonicParsing="false" />
+      <Button layoutY="576.0" minHeight="144.0" minWidth="75.0" mnemonicParsing="false" onAction="#exitApp" text="exit" />
+   </children>
+</AnchorPane>
