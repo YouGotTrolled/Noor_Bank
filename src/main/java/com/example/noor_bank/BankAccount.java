@@ -1,28 +1,42 @@
 package com.example.noor_bank;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount implements Serializable {
+    private static long numberOfAccounts;
     private String username;
     private String password;
     private List<Account> owner;
+    private long accountNumberId;
+    //12
+    private String shaba;
+    //26
+    private List<Card> cards;
+    private long balance;
+    private float interest;
 
+    static{
+        //load numberOfAccounts
+    }
     //constructor
-    public BankAccount(String username, String password, List<Account> owner) {
+    public BankAccount(String username, String password, List<Account> owner, float interest) {
         this.username = username;
         this.password = password;
         this.owner = owner;
+        this.accountNumberId = 100000000000L+numberOfAccounts++;
+        this.shaba = "IR000000000000"+accountNumberId;
+        this.cards = new ArrayList<>();
+        this.interest = interest;
     }
 
     public BankAccount(String username, String password, Account owner) {
-        this.username = username;
-        this.password = password;
-        this.owner = List.of(owner);
+        this(username, password, List.of(owner), 0);
     }
 
     public BankAccount() {
-        this("defaultUserName", "1234", List.of(new Account()));
+        this("defaultUserName", "1234", new Account());
     }
 
     // Getter and Setter for username
@@ -52,6 +66,51 @@ public class BankAccount implements Serializable {
         this.owner = owner;
     }
 
+    // Getter and Setter for accountNumberId
+    public long getAccountNumberId() {
+        return accountNumberId;
+    }
+
+    public void setAccountNumberId(long accountNumberId) {
+        this.accountNumberId = accountNumberId;
+    }
+
+    // Getter and Setter for shaba
+    public String getShaba() {
+        return shaba;
+    }
+
+    public void setShaba(String shaba) {
+        this.shaba = shaba;
+    }
+
+    // Getter and Setter for cards
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    // Getter and Setter for shaba
+    public long getBalance() {
+        return balance;
+    }
+
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
+
+    // Getter and Setter for interest
+    public float getInterest() {
+        return interest;
+    }
+
+    public void setInterest(float interest) {
+        this.interest = interest;
+    }
+
     //methods
     public String toString() {
         return username;
@@ -66,5 +125,13 @@ public class BankAccount implements Serializable {
 
     public int hashCode() {
         return username.hashCode();
+    }
+
+    public synchronized void spendBalance(long amount) throws NotEnoughMoney{
+        if(amount>balance) {
+            throw new NotEnoughMoney();
+        }else{
+            balance=balance-amount;
+        }
     }
 }
