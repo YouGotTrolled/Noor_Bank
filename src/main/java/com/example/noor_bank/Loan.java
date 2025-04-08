@@ -63,13 +63,13 @@ public class Loan {
 
     //methods
     public String toString() {
-        return "loan of "+amount;
+        return "loan of " + amount;
     }
 
     public boolean equals(Object o) {
         boolean result = false;
         if (o instanceof Loan)
-            result = amount==((Loan) o).amount&&interest==((Loan) o).interest;
+            result = amount == ((Loan) o).amount && interest == ((Loan) o).interest;
         return result;
     }
 

@@ -52,13 +52,13 @@ public class Check {
 
     //methods
     public String toString() {
-        return "check from "+from.getUsername()+" to "+to.getUsername();
+        return "check from " + from.getUsername() + " to " + to.getUsername();
     }
 
     public boolean equals(Object o) {
         boolean result = false;
         if (o instanceof Check)
-            result = from.equals(((Check) o).from)&&to.equals(((Check) o).to)&&amount==((Check) o).amount&&date==((Check) o).date;
+            result = from.equals(((Check) o).from) && to.equals(((Check) o).to) && amount == ((Check) o).amount && date == ((Check) o).date;
         return result;
     }
 

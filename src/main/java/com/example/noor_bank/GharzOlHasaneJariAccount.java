@@ -9,12 +9,14 @@ public class GharzOlHasaneJariAccount extends BankAccount {
 
     //constructor
     public GharzOlHasaneJariAccount(String username, String password, List<Account> owner) {
-        super(username,password,owner,0);
+        super(username, password, owner, 0);
         this.checkList = new ArrayList<>();
     }
+
     public GharzOlHasaneJariAccount(String username, String password, Account owner) {
         this(username, password, List.of(owner));
     }
+
     // Getter and Setter for loan
     public Loan getLoan() {
         return loan;
@@ -35,6 +37,6 @@ public class GharzOlHasaneJariAccount extends BankAccount {
 
     //methods
     public String toString() {
-        return "GharzOlHasaneJariAccount acc "+ this.getUsername();
+        return "GharzOlHasaneJariAccount acc " + this.getUsername();
     }
 }

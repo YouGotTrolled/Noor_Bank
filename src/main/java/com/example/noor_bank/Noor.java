@@ -21,11 +21,11 @@ public class Noor extends Application {
         stage.getIcons().add(ic);
         stage.setTitle("Noor Bank");
         stage.setResizable(false);
-        scene.setOnMousePressed((MouseEvent event) ->{
+        scene.setOnMousePressed((MouseEvent event) -> {
             x = event.getSceneX();
             y = event.getSceneY();
         });
-        scene.setOnMouseDragged((MouseEvent event) ->{
+        scene.setOnMouseDragged((MouseEvent event) -> {
             stage.setX(event.getScreenX() - x);
             stage.setY(event.getScreenY() - y);
             stage.setOpacity(.6);
@@ -36,6 +36,7 @@ public class Noor extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
     private double x;
     private double y;
 

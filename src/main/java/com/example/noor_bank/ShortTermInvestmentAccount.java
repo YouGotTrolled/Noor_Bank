@@ -7,11 +7,13 @@ public class ShortTermInvestmentAccount extends BankAccount {
 
     //constructor
     public ShortTermInvestmentAccount(String username, String password, List<Account> owner) {
-        super(username,password,owner,2.5f);
+        super(username, password, owner, 2.5f);
     }
+
     public ShortTermInvestmentAccount(String username, String password, Account owner) {
         this(username, password, List.of(owner));
     }
+
     // Getter and Setter for loan
     public Loan getLoan() {
         return loan;
@@ -23,6 +25,6 @@ public class ShortTermInvestmentAccount extends BankAccount {
 
     //methods
     public String toString() {
-        return "ShortTermInvestmentAccount acc "+ this.getUsername();
+        return "ShortTermInvestmentAccount acc " + this.getUsername();
     }
 }

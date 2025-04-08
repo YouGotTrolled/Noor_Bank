@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class Card implements Serializable {
-    private  int numberOfCards;
+    private int numberOfCards;
     private BankAccount ownerAccount;
     private String ownerName;
     private int date;
@@ -14,15 +14,16 @@ public class Card implements Serializable {
     private long cardNumberId;
     private CardSkin cardSkin;
 
-    static{
+    static {
         //load numberOfCards
     }
+
     //constructor
-    public Card(BankAccount ownerAccount,String ownerName,CardSkin cardSkin) {
+    public Card(BankAccount ownerAccount, String ownerName, CardSkin cardSkin) {
         this.ownerAccount = ownerAccount;
         this.ownerName = ownerName;
         this.date = Integer.parseInt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")));
-        this.cardNumberId = 6060_0606_0000_0000L+numberOfCards++;
+        this.cardNumberId = 6060_0606_0000_0000L + numberOfCards++;
         this.cvv = (new Random()).nextInt(4);
         this.cardSkin = cardSkin;
     }
@@ -90,7 +91,7 @@ public class Card implements Serializable {
     public boolean equals(Object o) {
         boolean result = false;
         if (o instanceof Card)
-            result = cardNumberId==((Card) o).cardNumberId;
+            result = cardNumberId == ((Card) o).cardNumberId;
         return result;
     }
 

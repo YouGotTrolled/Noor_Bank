@@ -17,16 +17,17 @@ public class BankAccount implements Serializable {
     private long balance;
     private float interest;
 
-    static{
+    static {
         //load numberOfAccounts
     }
+
     //constructor
     public BankAccount(String username, String password, List<Account> owner, float interest) {
         this.username = username;
         this.password = password;
         this.owner = owner;
-        this.accountNumberId = 100000000000L+numberOfAccounts++;
-        this.shaba = "IR000000000000"+accountNumberId;
+        this.accountNumberId = 100000000000L + numberOfAccounts++;
+        this.shaba = "IR000000000000" + accountNumberId;
         this.cards = new ArrayList<>();
         this.interest = interest;
     }
@@ -127,11 +128,11 @@ public class BankAccount implements Serializable {
         return username.hashCode();
     }
 
-    public synchronized void spendBalance(long amount) throws NotEnoughMoney{
-        if(amount>balance) {
+    public synchronized void spendBalance(long amount) throws NotEnoughMoney {
+        if (amount > balance) {
             throw new NotEnoughMoney();
-        }else{
-            balance=balance-amount;
+        } else {
+            balance = balance - amount;
         }
     }
 }

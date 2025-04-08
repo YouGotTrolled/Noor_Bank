@@ -19,7 +19,7 @@ public class Account implements Serializable {
     private boolean verification;
 
     //constructor
-    public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber, File personalLog, File personalPicture,boolean verification) {
+    public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber, File personalLog, File personalPicture, boolean verification) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -34,7 +34,7 @@ public class Account implements Serializable {
     }
 
     public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber) {
-        this(name, lastName, username, password, dateOfBirth, id, phoneNumber, new File(".\\systemFiles\\userLog\\" + username + ".txt"), new File(".\\systemFiles\\userPicture\\" + username + ".png") ,false);
+        this(name, lastName, username, password, dateOfBirth, id, phoneNumber, new File(".\\systemFiles\\userLog\\" + username + ".txt"), new File(".\\systemFiles\\userPicture\\" + username + ".png"), false);
     }
 
     public Account() {
@@ -142,7 +142,7 @@ public class Account implements Serializable {
 
     //methods
     public String toString() {
-        return (username+" ("+accountsList+")");
+        return (username + " (" + accountsList + ")");
     }
 
     public boolean equals(Object o) {

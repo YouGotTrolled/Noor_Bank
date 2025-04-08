@@ -1,19 +1,19 @@
 package com.example.noor_bank;
 
-import java.util.Objects;
-
 public class Notification {
     private String message;
     private boolean read;
 
     //constructor
-    public Notification(String message,boolean read) {
+    public Notification(String message, boolean read) {
         this.message = message;
         this.read = read;
     }
+
     public Notification(String message) {
-        this(message,false);
+        this(message, false);
     }
+
     // Getter and Setter for message
     public String getMessage() {
         return message;
@@ -34,7 +34,7 @@ public class Notification {
 
     //methods
     public String toString() {
-        return message+"("+read+")";
+        return message + "(" + read + ")";
     }
 
     public boolean equals(Object o) {
@@ -47,6 +47,4 @@ public class Notification {
     public int hashCode() {
         return message.hashCode();
     }
-
-
 }
