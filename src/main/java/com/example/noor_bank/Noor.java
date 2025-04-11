@@ -18,7 +18,7 @@ public class Noor extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         operator = new ClientSideOperator();
-        FXMLLoader fxmlLoader = new FXMLLoader(Noor.class.getResource("Main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Noor.class.getResource("mainPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         Image ic = new Image("Noor.png");
         stage.setMinHeight(720);
