@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Account implements Serializable {
+    private static final long serialVersionUID = 1;
     private String name;
     private String lastName;
     private String username;
@@ -20,7 +21,7 @@ public class Account implements Serializable {
 
     //constructor
     public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber, File personalLog, File personalPicture, boolean verification) {
-        this.username = username;
+        this.username = "H_"+username;
         this.password = password;
         this.name = name;
         this.lastName = lastName;

@@ -11,8 +11,13 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class Noor extends Application {
+    public static ClientSideOperator operator;
+    private double x;
+    private double y;
+
     @Override
     public void start(Stage stage) throws IOException {
+        operator = new ClientSideOperator();
         FXMLLoader fxmlLoader = new FXMLLoader(Noor.class.getResource("Main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         Image ic = new Image("Noor.png");
@@ -36,9 +41,6 @@ public class Noor extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-    private double x;
-    private double y;
 
     public static void main(String[] args) {
         launch();

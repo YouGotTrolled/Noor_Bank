@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class Card implements Serializable {
+    private static final long serialVersionUID = 1;
     private int numberOfCards;
     private BankAccount ownerAccount;
     private String ownerName;

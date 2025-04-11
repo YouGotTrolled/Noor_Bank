@@ -1,17 +1,20 @@
 package com.example.noor_bank;
 
-public class Loan {
+import java.io.Serializable;
+
+public class Loan implements Serializable {
+    private static final long serialVersionUID = 1;
     private long amount;
-    private int interest;
-    private int date;
+    private float interest;
+    private int dateOfLastPayment;
     private int dateOfStarting;
     private int numberOfMonth;
 
     //constructor
-    public Loan(long amount, int interest, int date, int dateOfStarting, int numberOfMonth) {
+    public Loan(long amount, float interest, int dateOfStarting, int numberOfMonth) {
         this.amount = amount;
         this.interest = interest;
-        this.date = date;
+        this.dateOfLastPayment = dateOfStarting;
         this.dateOfStarting = dateOfStarting;
         this.numberOfMonth = numberOfMonth;
     }
@@ -26,21 +29,21 @@ public class Loan {
     }
 
     // Getter and Setter for interest
-    public int getInterest() {
+    public float getInterest() {
         return interest;
     }
 
-    public void setInterest(int interest) {
+    public void setInterest(float interest) {
         this.interest = interest;
     }
 
-    // Getter and Setter for interest
-    public int getDate() {
-        return date;
+    // Getter and Setter for dateOfLastPayment
+    public int getDateOfLastPayment() {
+        return dateOfLastPayment;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setDateOfLastPayment(int dateOfLastPayment) {
+        this.dateOfLastPayment = dateOfLastPayment;
     }
 
     // Getter and Setter for dateOfStarting
@@ -75,5 +78,10 @@ public class Loan {
 
     public int hashCode() {
         return Math.toIntExact(amount);
+    }
+
+    public long getPayment(int month){
+        long payment=month*(long)interest*amount/100;
+        return payment;
     }
 }

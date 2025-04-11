@@ -1,6 +1,9 @@
 package com.example.noor_bank;
 
-public class Notification {
+import java.io.Serializable;
+
+public class Notification implements Serializable {
+    private static final long serialVersionUID = 1;
     private String message;
     private boolean read;
 

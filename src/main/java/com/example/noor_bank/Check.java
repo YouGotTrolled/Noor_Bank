@@ -1,6 +1,7 @@
 package com.example.noor_bank;
 
 public class Check {
+    private static final long serialVersionUID = 1;
     private BankAccount from;
     private BankAccount to;
     private long amount;

@@ -3,7 +3,7 @@ src: url(fonts/Lalezar-Regular.ttf);
 }
 .classy-button {
     -fx-font-family: 'Lalezar';
-    -fx-background-color: #2c3e50;
+    -fx-background-color: #1E2C31;
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-background-radius: 0%;
@@ -16,4 +16,43 @@ src: url(fonts/Lalezar-Regular.ttf);
 
 .classy-button:pressed {
     -fx-background-color: #1abc9c;
+}
+
+.classy-labell {
+    -fx-font-family: 'Lalezar';
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-background-radius: 0%;
+}
+
+.eye {
+    -fx-font-family: 'Lalezar';
+    -fx-background-color: #1E2C31;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-background-radius: 0%;
+    -fx-cursor: hand;
+}
+
+.classy-button-card {
+    -fx-font-family: 'Lalezar';
+    -fx-background-color: #314953;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-background-radius: 0%;
+    -fx-cursor: hand;
+}
+
+.classy-button-card:hover {
+    -fx-background-color: #C8DAE5;
+    -fx-padding: 10 20;
+    -fx-background-radius: 25;
+    -fx-text-fill: #000000;
+}
+
+.classy-button-card:pressed {
+    -fx-background-color: #1abc9c;
+    -fx-background-radius: 25;
+    -fx-padding: 10 20;
+    -fx-text-fill: #000000;
 }

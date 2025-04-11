@@ -3,10 +3,11 @@ package com.example.noor_bank;
 import java.util.List;
 
 public class LongTermInvestmentAccount extends BankAccount {
+    private static final long serialVersionUID = 1;
 
     //constructor
     public LongTermInvestmentAccount(String username, String password, List<Account> owner) {
-        super(username, password, owner, 12.5f);
+        super("L_"+username, password, owner, 12.5f);
     }
 
     public LongTermInvestmentAccount(String username, String password, Account owner) {

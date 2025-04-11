@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount implements Serializable {
+    private static final long serialVersionUID = 1;
     private static long numberOfAccounts;
     private String username;
     private String password;
     private List<Account> owner;
     private long accountNumberId;
-    //12
     private String shaba;
-    //26
     private List<Card> cards;
     private long balance;
     private float interest;
+    private List<Notification> notifications;
 
     static {
         //load numberOfAccounts
@@ -30,6 +30,8 @@ public class BankAccount implements Serializable {
         this.shaba = "IR000000000000" + accountNumberId;
         this.cards = new ArrayList<>();
         this.interest = interest;
+        this.notifications = new ArrayList<>();
+        notifications.add(new Notification("به بانک نور خوش امدید"));
     }
 
     public BankAccount(String username, String password, Account owner) {
@@ -112,6 +114,15 @@ public class BankAccount implements Serializable {
         this.interest = interest;
     }
 
+    // Getter and Setter for notifications
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
+
     //methods
     public String toString() {
         return username;
@@ -135,4 +146,13 @@ public class BankAccount implements Serializable {
             balance = balance - amount;
         }
     }
+
+    public void notificationRead(int index){
+        notifications.get(index).setRead(true);
+    }
+
+    public synchronized void checkInterest(){
+        balance= (long) (balance+balance*interest);
+    }
+
 }

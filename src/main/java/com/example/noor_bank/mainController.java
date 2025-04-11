@@ -7,7 +7,10 @@ public class mainController {
 
     @FXML
     void exitApp(ActionEvent event) {
-        System.exit(0);
+        Noor.operator.closeTheApp();
     }
+    @FXML
+    void but4(ActionEvent event) {
 
+    }
 }
