@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -58,7 +59,7 @@
             <Label alignment="CENTER" layoutX="26.0" layoutY="39.0" prefHeight="60.0" prefWidth="300.0" styleClass="classy-labell" stylesheets="@buttons.css" text="*** ريال" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="42.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="313.0" layoutY="235.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">
+      <AnchorPane layoutX="313.0" layoutY="235.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">
          <children>
             <FontAwesomeIcon glyphName="USER" layoutX="135.0" layoutY="127.0" scaleX="20.0" scaleY="20.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="144.0" />
             <Label layoutX="226.0" layoutY="181.0" styleClass="classy-labell" stylesheets="@buttons.css" text="محمد امین عبداله نیا" AnchorPane.topAnchor="181.0" />
@@ -75,8 +76,67 @@
             <Button alignment="CENTER" layoutX="781.0" layoutY="243.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="تغیر رمز" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="210.0" />
             <Button alignment="CENTER" layoutX="205.0" layoutY="281.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="پشتیبانی" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="210.0" />
          </children></AnchorPane>
-      <AnchorPane layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #C8DAE5;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0" />
-      <AnchorPane layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #C8DAE5;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0" />
+      <AnchorPane layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">
+         <children>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="824.0" layoutY="69.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="شارژ" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="60.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="PHONE" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="842.0" layoutY="403.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="نیکوکاری" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="100.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="HEART" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="522.0" layoutY="382.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="باکس" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="478.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="LOCK" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="196.0" layoutY="376.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 35;" styleClass="classy-button-card" stylesheets="@buttons.css" text="صورت حساب" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="100.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="HISTORY" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="826.0" layoutY="250.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="وام" AnchorPane.bottomAnchor="238.0" AnchorPane.rightAnchor="100.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="BANK" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="496.0" layoutY="232.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 30;" styleClass="classy-button-card" stylesheets="@buttons.css" text="خدمات خودرو" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="478.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="CAR" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="185.0" layoutY="209.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 25;" styleClass="classy-button-card" stylesheets="@buttons.css" text="دعوت از دوستان" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="100.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="ENVELOPE" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="508.0" layoutY="71.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="اینترنت" AnchorPane.leftAnchor="478.0" AnchorPane.topAnchor="60.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="GLOBE" />
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" layoutX="169.0" layoutY="67.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="قبض" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="60.0">
+               <graphic>
+                  <FontAwesomeIcon glyphName="MONEY" />
+               </graphic>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">
+         <children>
+            <TextField layoutX="624.0" layoutY="111.0" prefHeight="50.0" prefWidth="400.0" styleClass="classy-button" stylesheets="@buttons.css" AnchorPane.leftAnchor="605.5999999999999" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0" />
+            <TextField layoutX="626.0" layoutY="245.0" prefHeight="50.0" prefWidth="400.0" styleClass="classy-button" stylesheets="@buttons.css" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="226.0" />
+            <Button alignment="CENTER" layoutX="146.0" layoutY="70.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="350.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="انتقال با شماره کارت" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="50.0" />
+            <Button alignment="CENTER" layoutX="160.0" layoutY="187.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="350.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="انتقال با شماره حساب" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="170.0" />
+            <Button alignment="CENTER" layoutX="160.0" layoutY="312.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="350.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="انتقال با شماره شبا" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="290.0" />
+            <Button alignment="CENTER" layoutX="680.0" layoutY="328.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="تایید" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="352.0" />
+            <Label layoutX="1042.0" layoutY="111.0" styleClass="classy-labell" stylesheets="@buttons.css" text="شماره کارت:" AnchorPane.leftAnchor="1010.0" AnchorPane.topAnchor="100.0" />
+            <Label layoutX="1036.0" layoutY="245.0" styleClass="classy-labell" stylesheets="@buttons.css" text="مبلغ:" AnchorPane.leftAnchor="1010.4" AnchorPane.topAnchor="226.0" />
+            <Label alignment="CENTER_RIGHT" layoutX="804.0" layoutY="299.0" prefHeight="56.0" prefWidth="400.0" style="-fx-font-size: 20;" styleClass="classy-labell" stylesheets="@buttons.css" text="صد و بیست و یک" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="286.0" />
+            <Label alignment="CENTER_RIGHT" layoutX="782.0" layoutY="163.0" prefHeight="56.0" prefWidth="400.0" style="-fx-font-size: 20;" styleClass="classy-labell" stylesheets="@buttons.css" text="محمد امین عبداله نیا" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="160.0" />
+         </children></AnchorPane>
       <AnchorPane layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="300.0" layoutX="152.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" AnchorPane.leftAnchor="301.0" AnchorPane.topAnchor="20.0" />
