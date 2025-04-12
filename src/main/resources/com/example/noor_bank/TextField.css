@@ -1,0 +1,48 @@
+.text-field{
+    -fx-font-family: 'Lalezar';
+    -fx-background-radius: 15px;
+    -fx-background-color: #c3f7f4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.5),5,0,5,5);
+}
+
+.button{
+    -fx-font-family: 'Lalezar';
+    -fx-background-radius: 10px;
+    -fx-background-color:  #314953;
+
+}
+.button:hover{
+    -fx-font-family: 'Lalezar';
+    -fx-background-color:  #1E2C31;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+}
+
+
+#B1{
+    -fx-background-color: transparent;
+
+}
+#B1:hover{
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+#B3{
+    -fx-background-color: #314953;
+    -fx-border-color: #f2ff00;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.0),0,0,0,0);
+}
+#B3:hover{
+    -fx-background-color: #1E2C31;
+}
+#L1{
+    -fx-background-radius: 50px;
+    -fx-background-color: #1E2C31;
+}
+#L2{
+    -fx-background-radius: 50px;
+    -fx-background-color: #1E2C31;
+}

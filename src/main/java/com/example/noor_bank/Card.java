@@ -23,9 +23,9 @@ public class Card implements Serializable {
     public Card(BankAccount ownerAccount, String ownerName, CardSkin cardSkin) {
         this.ownerAccount = ownerAccount;
         this.ownerName = ownerName;
-        this.date = Integer.parseInt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+        this.date = Integer.parseInt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))) + 8_00_00;
         this.cardNumberId = 6060_0606_0000_0000L + numberOfCards++;
-        this.cvv = (new Random()).nextInt(4);
+        this.cvv = (new Random()).nextInt(10000);
         this.cardSkin = cardSkin;
     }
 

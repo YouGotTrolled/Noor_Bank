@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Noor extends Application {
     public static ClientSideOperator operator;
@@ -18,9 +19,13 @@ public class Noor extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         operator = new ClientSideOperator();
-        FXMLLoader fxmlLoader = new FXMLLoader(Noor.class.getResource("mainPage.fxml"));
+        //
+        operator.setCurrentBankAccount(new GharzOlHasaneJariAccount("abdoll","1234",new Account()));
+        operator.getCurrentBankAccount().setCards(List.of(new Card(operator.getCurrentBankAccount(),"محمد امین عبداله نیا",CardSkin.YELLOW)));
+        //
+        FXMLLoader fxmlLoader = new FXMLLoader(Noor.class.getResource("entry.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-        Image ic = new Image("Noor.png");
+        Image ic = new Image("logo.png");
         stage.setMinHeight(720);
         stage.setMinWidth(1280);
         stage.getIcons().add(ic);

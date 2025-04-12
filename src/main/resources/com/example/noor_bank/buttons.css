@@ -25,6 +25,10 @@ src: url(fonts/Lalezar-Regular.ttf);
     -fx-background-radius: 0%;
 }
 
+.not-classy-labell {
+    -fx-font-family: 'Lalezar';
+}
+
 .eye {
     -fx-font-family: 'Lalezar';
     -fx-background-color: #1E2C31;

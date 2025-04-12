@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="An" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #1E2C31;" stylesheets="@TextField.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.noor_bank.entry">
+    <children>
+        <AnchorPane fx:id="AnB" layoutX="480.0" minHeight="540.0" minWidth="480.0" prefHeight="540.0" prefWidth="480.0" style="-fx-background-color: #C8DAE5;">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <children>
+                <TextField fx:id="username2" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="225.0" prefHeight="30.0" prefWidth="300.0" promptText="نام کاربری" />
+                <TextField fx:id="id2" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="285.0" prefHeight="30.0" prefWidth="300.0" promptText="کد ملی" />
+                <Button fx:id="login2" layoutX="90.0" layoutY="370.0" mnemonicParsing="false" onAction="#login2" prefHeight="30.0" prefWidth="300.0" text="ورود" textFill="#f2ff00" />
+                <Label fx:id="Lforget" alignment="CENTER" layoutX="90.0" layoutY="115.0" prefHeight="60.0" prefWidth="300.0" styleClass="not-classy-labell" stylesheets="@buttons.css" text="فراموشی رمز">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="1.0" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.006729475100942127">
+                                    <color>
+                                        <Color red="1.0" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.4652496471128911">
+                                    <color>
+                                        <Color red="0.039340101182460785" blue="1.0" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <Button id="B2" fx:id="back1" layoutX="380.0" layoutY="50.0" mnemonicParsing="false" onAction="#back1" prefHeight="25.0" prefWidth="25.0" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../A2.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Label fx:id="er3N" alignment="CENTER" layoutX="90.0" layoutY="260.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="er3I" alignment="CENTER" layoutX="90.0" layoutY="325.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="AnR" layoutX="480.0" minHeight="540.0" minWidth="480.0" prefHeight="540.0" prefWidth="480.0" style="-fx-background-color: #C8DAE5;">
+            <children>
+                <TextField fx:id="Lusername" alignment="CENTER_RIGHT" layoutX="115.0" layoutY="190.0" prefHeight="35.0" prefWidth="250.0" promptText="نام کاربری" />
+                <TextField fx:id="Tepas1" alignment="CENTER_RIGHT" layoutX="115.0" layoutY="260.0" prefHeight="35.0" prefWidth="250.0" promptText="رمز عبور" />
+                <PasswordField fx:id="Lpas" alignment="CENTER_RIGHT" layoutX="115.0" layoutY="260.0" prefHeight="35.0" prefWidth="250.0" promptText="رمز عبور " stylesheets="@TextField.css" />
+                <Button fx:id="login" layoutX="115.0" layoutY="360.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="250.0" text="ورود" textFill="#f2ff00">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button id="B1" fx:id="but3" alignment="CENTER" layoutX="200.0" layoutY="315.0" mnemonicParsing="false" onAction="#forgetbut" prefHeight="20.0" prefWidth="80.0" text="فراموشی رمز؟" textFill="#1500ff">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Button>
+                <CheckBox fx:id="ch1" layoutX="125.0" layoutY="270.0" minWidth="15.0" mnemonicParsing="false" onAction="#checkBox1" prefHeight="18.0" prefWidth="17.0" />
+                <Label fx:id="O1" alignment="CENTER" layoutX="140.0" layoutY="100.0" prefHeight="54.0" prefWidth="200.0" styleClass="not-classy-labell" stylesheets="@buttons.css" text="ورود">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2992424097928134">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.01666666753590107" blue="1.0" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <Label fx:id="erN" alignment="CENTER" layoutX="115.0" layoutY="230.0" prefHeight="25.0" prefWidth="250.0" textFill="RED" />
+                <Label fx:id="erP" alignment="CENTER" layoutX="115.0" layoutY="302.0" prefHeight="20.0" prefWidth="250.0" textFill="RED" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="AnL1" minHeight="540.0" minWidth="480.0" prefHeight="540.0" prefWidth="0.0" style="-fx-background-color: #C8DAE5;">
+            <children>
+                <TextField fx:id="lastname" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="155.0" prefHeight="30.0" prefWidth="300.0" promptText="نام خانوادگی" />
+                <TextField fx:id="username" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="320.0" prefHeight="30.0" prefWidth="300.0" promptText="نام کاربری" />
+                <Button fx:id="sign" layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#signIN" prefHeight="30.0" prefWidth="250.0" text="عضویت" textFill="#e5ff00">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Label fx:id="O2" alignment="CENTER" layoutX="140.0" layoutY="25.0" prefHeight="54.0" prefWidth="200.0" styleClass="not-classy-labell" stylesheets="@buttons.css" text="ایجاد حساب">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2992424097928134">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="1.0" blue="0.8032994866371155" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.006729475100942127">
+                                    <color>
+                                        <Color red="1.0" blue="0.8032994866371155" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="0.48939697337753996">
+                                    <color>
+                                        <Color red="0.01666666753590107" blue="1.0" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0" promptText="نام" />
+                <TextField fx:id="id" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="210.0" prefHeight="30.0" prefWidth="300.0" promptText="کد ملی" />
+                <TextField fx:id="textpas" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" promptText="رمز عبور" />
+                <PasswordField fx:id="pas" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" promptText="رمز عبور" />
+                <TextField fx:id="textpas2" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="430.0" prefHeight="30.0" prefWidth="300.0" promptText="تکرار رمز عبور" />
+                <PasswordField fx:id="pas2" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="430.0" prefHeight="30.0" prefWidth="300.0" promptText="تکرار رمز عبور" />
+                <CheckBox fx:id="ch2" layoutX="100.0" layoutY="381.0" mnemonicParsing="false" onAction="#checkbox2" />
+                <CheckBox fx:id="ch3" layoutX="100.0" layoutY="436.0" mnemonicParsing="false" onAction="#checkbox3" />
+                <TextField fx:id="phonenumber" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="265.0" prefHeight="30.0" prefWidth="300.0" promptText="تلفن همراه / نمونه : 09141234567" />
+                <Label id="L1" fx:id="infouser" alignment="CENTER" layoutX="52.0" layoutY="320.0" prefHeight="30.0" prefWidth="30.0" text="!" textFill="#e1ff00">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label id="L2" fx:id="infopas" alignment="CENTER" layoutX="52.0" layoutY="375.0" prefHeight="30.0" prefWidth="30.0" text="!" textFill="#d9ff00">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ername" alignment="CENTER" layoutX="90.0" layoutY="135.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erlastname" alignment="CENTER" layoutX="90.0" layoutY="190.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erid" alignment="CENTER" layoutX="90.0" layoutY="245.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erusername" alignment="CENTER" layoutX="90.0" layoutY="355.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erphone" alignment="CENTER" layoutX="90.0" layoutY="300.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erpas1" alignment="CENTER" layoutX="90.0" layoutY="410.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erpas2" alignment="CENTER" layoutX="90.0" layoutY="465.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <TextArea fx:id="infouser2" editable="false" layoutX="77.0" layoutY="265.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="125.0" text="نام کاربری فقط حروف انگلیسی ، . ، @ و # مجاز است" visible="false" wrapText="true" />
+                <TextArea fx:id="infopas2" editable="false" layoutX="77.0" layoutY="320.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="125.0" text="رمز باید حروف بزرگ و کوچک انگلیسی و عدد داشته باشد" visible="false" wrapText="true" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="AnI" prefHeight="540.0" prefWidth="480.0" style="-fx-background-color: #1E2C31;">
+            <children>
+                <ImageView fx:id="imageLogo" fitHeight="200.0" fitWidth="200.0" layoutX="140.0" layoutY="130.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../../../logo.png" />
+                    </image>
+                </ImageView>
+                <Button id="B3" fx:id="but4" layoutX="140.0" layoutY="390.0" mnemonicParsing="false" onAction="#but" prefHeight="50.0" prefWidth="200.0" textFill="#e1ff00">
+                    <graphic>
+                        <Label fx:id="Lbut" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="not-classy-labell" stylesheets="@buttons.css" textFill="#e1ff00">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </graphic>
+                </Button>
+            <Button id="B3" layoutX="140.0" layoutY="457.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="50.0" prefWidth="200.0" textFill="#e1ff00" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
+               <graphic>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20;" styleClass="classy-labell" stylesheets="@buttons.css" text="خروج از برنامه" textFill="#e1ff00">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

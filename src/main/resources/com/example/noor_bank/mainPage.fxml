@@ -42,7 +42,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="21.599999999999994" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="22.0">
                <image>
-                  <Image url="@../../../Noor.png" />
+                  <Image url="@../../../logo.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER_RIGHT" layoutX="935.2" layoutY="19.0" prefHeight="97.0" prefWidth="142.0" style="-fx-font-size: 48;" styleClass="classy-labell" stylesheets="@buttons.css" text="بانک نور" textFill="#f70000" AnchorPane.bottomAnchor="28.200000000000003" AnchorPane.leftAnchor="935.2" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="19.0" />
@@ -126,15 +126,15 @@
          </children></AnchorPane>
       <AnchorPane fx:id="transferTab" layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">
          <children>
-            <TextField layoutX="624.0" layoutY="111.0" prefHeight="50.0" prefWidth="400.0" styleClass="classy-button" stylesheets="@buttons.css" AnchorPane.leftAnchor="605.5999999999999" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0" />
-            <TextField layoutX="626.0" layoutY="245.0" prefHeight="50.0" prefWidth="400.0" styleClass="classy-button" stylesheets="@buttons.css" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="226.0" />
+            <TextField fx:id="T_field" layoutX="624.0" layoutY="111.0" prefHeight="50.0" prefWidth="400.0" styleClass="classy-button" stylesheets="@buttons.css" AnchorPane.leftAnchor="605.5999999999999" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="100.0" />
+            <TextField fx:id="T_moneyField" layoutX="626.0" layoutY="245.0" prefHeight="50.0" prefWidth="400.0" styleClass="classy-button" stylesheets="@buttons.css" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="226.0" />
             <Button fx:id="T_cardNumber" alignment="CENTER" layoutX="146.0" layoutY="70.0" mnemonicParsing="false" onAction="#changeTrasferOption" prefHeight="100.0" prefWidth="350.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="انتقال با شماره کارت" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="50.0" />
             <Button fx:id="T_acountNumber" alignment="CENTER" layoutX="160.0" layoutY="187.0" mnemonicParsing="false" onAction="#changeTrasferOption" prefHeight="100.0" prefWidth="350.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="انتقال با شماره حساب" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="170.0" />
             <Button fx:id="T_shaba" alignment="CENTER" layoutX="160.0" layoutY="312.0" mnemonicParsing="false" onAction="#changeTrasferOption" prefHeight="100.0" prefWidth="350.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="انتقال با شماره شبا" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="290.0" />
             <Button alignment="CENTER" layoutX="680.0" layoutY="328.0" mnemonicParsing="false" onAction="#transfer" prefHeight="100.0" prefWidth="300.0" style="-fx-font-size: 40;" styleClass="classy-button-card" stylesheets="@buttons.css" text="تایید" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="352.0" />
             <Label fx:id="T_trasferOption" layoutX="1042.0" layoutY="111.0" styleClass="classy-labell" stylesheets="@buttons.css" text="شماره کارت:" AnchorPane.leftAnchor="1010.0" AnchorPane.topAnchor="100.0" />
             <Label layoutX="1036.0" layoutY="245.0" styleClass="classy-labell" stylesheets="@buttons.css" text="مبلغ:" AnchorPane.leftAnchor="1010.4" AnchorPane.topAnchor="226.0" />
-            <Label fx:id="T_total" alignment="CENTER_RIGHT" layoutX="804.0" layoutY="299.0" prefHeight="56.0" prefWidth="400.0" style="-fx-font-size: 20;" styleClass="classy-labell" stylesheets="@buttons.css" text="صد و بیست و یک" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="286.0" />
+            <Label fx:id="T_total" alignment="CENTER_RIGHT" layoutX="804.0" layoutY="299.0" prefHeight="56.0" prefWidth="400.0" style="-fx-font-size: 10;" styleClass="classy-labell" stylesheets="@buttons.css" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="286.0" />
             <Label fx:id="T_dName" alignment="CENTER_RIGHT" layoutX="782.0" layoutY="163.0" prefHeight="56.0" prefWidth="400.0" style="-fx-font-size: 20;" styleClass="classy-labell" stylesheets="@buttons.css" text="محمد امین عبداله نیا" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="160.0" />
          </children></AnchorPane>
       <AnchorPane fx:id="cardManagerTab" layoutX="323.0" layoutY="245.0" prefHeight="576.0" prefWidth="1205.0" style="-fx-background-color: #314953;" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="144.0">

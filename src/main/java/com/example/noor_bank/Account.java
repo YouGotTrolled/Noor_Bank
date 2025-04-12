@@ -35,7 +35,7 @@ public class Account implements Serializable {
     }
 
     public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber) {
-        this(name, lastName, username, password, dateOfBirth, id, phoneNumber, new File(".\\systemFiles\\userLog\\" + username + ".txt"), new File(".\\systemFiles\\userPicture\\" + username + ".png"), false);
+        this(name, lastName, username, password, dateOfBirth, id, phoneNumber, new File(".\\systemFiles\\userLog\\" + username + ".txt"), new File(".\\systemFiles\\userPicture\\" + username + ".png"), true);
     }
 
     public Account() {
