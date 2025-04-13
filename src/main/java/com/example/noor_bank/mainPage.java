@@ -46,6 +46,9 @@ public class mainPage {
     private Label T_dName;
 
     @FXML
+    private Label T_error;
+
+    @FXML
     private Button T_shaba;
 
     @FXML
@@ -56,6 +59,15 @@ public class mainPage {
 
     @FXML
     private Label T_total;
+
+    @FXML
+    private Label T_warning;
+
+    @FXML
+    private Button ST;
+
+    @FXML
+    private Button CT;
 
     @FXML
     private Label T_trasferOption;
@@ -82,17 +94,19 @@ public class mainPage {
     Account account;
     BankAccount bankAccount;
     Card card;
+    int transferMode=1;
+    BankAccount T_target;
 
     @FXML
     void initialize() {
         account = Noor.operator.getCurrentAccount();
         bankAccount = Noor.operator.getCurrentBankAccount();
-        card = Noor.operator.getCurrentBankAccount().getCards().get(0);
+        card = Noor.operator.getCurrentBankAccount().getCards();
         //
-        T_field.setOnAction(e-> System.out.println("search"));
+        T_field.setOnKeyReleased(e-> searchForTrancfer());
         T_moneyField.setOnKeyReleased(e-> amountToString());
         //loading
-        A_name.setText(bankAccount.getUsername());
+        A_name.setText(account.getNameAndLastName());
         A_shaba.setText(bankAccount.getShaba());
         A_accountNumberId.setText(String.valueOf(bankAccount.getAccountNumberId()));
         String temp;
@@ -100,21 +114,24 @@ public class mainPage {
             temp = "قرض الحسنه ی جاری";
         } else if (bankAccount instanceof LongTermInvestmentAccount) {
             temp = "سپرده بلند مدت";
+            CT.setDisable(true);
+            ST.setDisable(true);
+            T_warning.setVisible(true);
         }else{
             temp = "سپرده کوتاه مدت";
         }
         A_accountType.setText(temp);
         balance = bankAccount.getBalance();
-        C_cvv2.setText(String.valueOf(card.getCvv()));
+        C_cvv2.setText("CVV2:"+card.getCvv());
         int exp = card.getDate();
-        C_exp.setText(exp/1_00_00+"/"+(exp/1_00)%1_00);
+        C_exp.setText("EXP:"+exp/1_00_00+"/"+(exp/1_00)%1_00);
         C_cardNumber.setText(String.valueOf(card.getCardNumberId()));
         C_cardOwner.setText(card.getOwnerName());
     }
 
     @FXML
     void accountChangeInfo(ActionEvent event) {
-
+        Noor.operator.goTo("editinfo",event);
     }
 
     @FXML
@@ -124,7 +141,7 @@ public class mainPage {
 
     @FXML
     void accountLogOut(ActionEvent event) {
-
+        Noor.operator.goTo("entry",event);
     }
 
     @FXML
@@ -154,7 +171,7 @@ public class mainPage {
 
     @FXML
     void changeAccount(ActionEvent event) {
-
+        Noor.operator.goTo("chooseBankAccount",event);
     }
 
     @FXML
@@ -195,7 +212,17 @@ public class mainPage {
 
     @FXML
     void changeTrasferOption(ActionEvent event) {
-
+        double y = ((Button) event.getSource()).getLayoutY();
+        if(y==50.4){
+            transferMode=1;
+            T_trasferOption.setText("شماره کارت:");
+        } else if (y==170.4) {
+            transferMode=2;
+            T_trasferOption.setText("شماره حساب:");
+        }else{
+            transferMode=3;
+            T_trasferOption.setText("شماره شبا:");
+        }
     }
 
     @FXML
@@ -225,6 +252,7 @@ public class mainPage {
 
     @FXML
     void hideBalance(ActionEvent event) {
+        balance=bankAccount.getBalance();
         char id = ((Button) event.getSource()).getId().charAt(0);
         if(id == 'o'){
             openBalance.setVisible(false);
@@ -239,7 +267,7 @@ public class mainPage {
 
     @FXML
     void history(ActionEvent event) {
-
+        Noor.operator.goTo("bill",event);
     }
 
     @FXML
@@ -264,7 +292,17 @@ public class mainPage {
 
     @FXML
     void transfer(ActionEvent event) {
-
+        if(T_target == null){
+            T_error.setText("فرد یافت نشد");
+        }else{
+            try {
+                Noor.operator.getCurrentBankAccount().spendBalance(Long.parseLong(T_moneyField.getText()));
+                T_target.addToBalance(Long.parseLong(T_moneyField.getText()));
+                T_error.setText("تراکنش موفق");
+            } catch (NotEnoughMoney e) {
+                T_error.setText("پول نداری");
+            }
+        }
     }
 
     void amountToString() {
@@ -312,12 +350,64 @@ public class mainPage {
                         temp = (int) (x % 10);
                         result.append(yakab[temp]);
                     }
-                    if (adadAmount > 1)
-                        result.append(" " + adad[--adadAmount] + " و ");
+                    if (--adadAmount >= 1)
+                        result.append(" " + adad[adadAmount]);
                     scan %= counter;
+                    while (counter>=1000&& scan==scan%(counter/1000)){
+                        adadAmount--;
+                        counter/=1000;
+                        scan %= counter;
+                    }
+                    if (adadAmount >= 1)
+                        result.append(" و ");
                 }
             }
-            T_total.setText(result.toString());
+            T_total.setText(result.toString()+ " ريال");
         }
+    }
+    public void searchForTrancfer(){
+        String result;
+        String in=T_field.getText();
+        if(transferMode ==1){
+            if(in.length()==16){
+                if(Noor.serverSideOperator.getBankAccounts().stream().map(o->o.getCards().getCardNumberId()).anyMatch(o->o==Long.parseLong(in))){
+                    T_target = Noor.serverSideOperator.getBankAccounts().stream().filter(o->o.getCards().getCardNumberId()==Long.parseLong(in)).findAny().get();
+                    result=T_target.getOwner().getNameAndLastName();
+                }else{
+                    result = "فرد یافت نشد";
+                    T_target = null;
+                }
+            }else{
+                result = "ورودی غیر مجاز";
+                T_target = null;
+            }
+        } else if (transferMode ==2) {
+            if(in.length()==12){
+                if(Noor.serverSideOperator.getBankAccounts().stream().map(o->o.getAccountNumberId()).anyMatch(o->o==Long.parseLong(in))){
+                    T_target = Noor.serverSideOperator.getBankAccounts().stream().filter(o->o.getAccountNumberId()==Long.parseLong(in)).findAny().get();
+                    result=T_target.getOwner().getNameAndLastName();
+                }else{
+                    result = "فرد یافت نشد";
+                    T_target = null;
+                }
+            }else{
+                result = "ورودی غیر مجاز";
+                T_target = null;
+            }
+        }else{
+            if(in.length()==26&&in.charAt(0)!='I'&&in.charAt(1)!='R'){
+                if(Noor.serverSideOperator.getBankAccounts().stream().map(o->o.getShaba()).anyMatch(o->o.equals(in))){
+                    T_target = Noor.serverSideOperator.getBankAccounts().stream().filter(o->o.getShaba().equals(in)).findAny().get();
+                    result=T_target.getOwner().getNameAndLastName();
+                }else{
+                    result = "فرد یافت نشد";
+                    T_target = null;
+                }
+            }else{
+                result = "ورودی غیر مجاز";
+                T_target = null;
+            }
+        }
+        T_dName.setText(result);
     }
 }

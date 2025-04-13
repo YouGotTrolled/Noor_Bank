@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Card implements Serializable {
     private static final long serialVersionUID = 1;
-    private int numberOfCards;
+    public static int numberOfCards = 0;
     private BankAccount ownerAccount;
     private String ownerName;
     private int date;
@@ -16,17 +16,22 @@ public class Card implements Serializable {
     private CardSkin cardSkin;
 
     static {
-        //load numberOfCards
     }
 
     //constructor
-    public Card(BankAccount ownerAccount, String ownerName, CardSkin cardSkin) {
+    public Card(BankAccount ownerAccount,CardSkin cardSkin) {
         this.ownerAccount = ownerAccount;
-        this.ownerName = ownerName;
+        this.ownerName = ownerAccount.getOwner().getNameAndLastName();
         this.date = Integer.parseInt(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))) + 8_00_00;
         this.cardNumberId = 6060_0606_0000_0000L + numberOfCards++;
         this.cvv = (new Random()).nextInt(10000);
+        while (this.cvv<100)
+            this.cvv = (new Random()).nextInt(10000);
         this.cardSkin = cardSkin;
+    }
+
+    public Card(BankAccount ownerAccount) {
+        this(ownerAccount,CardSkin.BLUE);
     }
 
     // Getter and Setter for ownerAccount

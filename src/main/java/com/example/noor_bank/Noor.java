@@ -8,20 +8,26 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class Noor extends Application {
     public static ClientSideOperator operator;
+    public static ServerSideOperator serverSideOperator;
     private double x;
     private double y;
 
     @Override
     public void start(Stage stage) throws IOException {
         operator = new ClientSideOperator();
-        //
-        operator.setCurrentBankAccount(new GharzOlHasaneJariAccount("abdoll","1234",new Account()));
-        operator.getCurrentBankAccount().setCards(List.of(new Card(operator.getCurrentBankAccount(),"محمد امین عبداله نیا",CardSkin.YELLOW)));
+        serverSideOperator = new ServerSideOperator();
+        System.out.println(serverSideOperator.getaAccounts());
+        //Files
+        (new File(".\\systemFiles")).mkdir();
+        (new File(".\\systemFiles\\userLog")).mkdir();
+        (new File(".\\systemFiles\\userChat")).mkdir();
+        (new File(".\\systemFiles\\bills")).mkdir();
+        (new File(".\\systemFiles\\accounts.dat")).createNewFile();
         //
         FXMLLoader fxmlLoader = new FXMLLoader(Noor.class.getResource("entry.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);

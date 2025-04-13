@@ -53,7 +53,7 @@ public class Check {
 
     //methods
     public String toString() {
-        return "check from " + from.getUsername() + " to " + to.getUsername();
+        return "check from " + from.getOwner().getNameAndLastName() + " to " + to.getOwner().getNameAndLastName();
     }
 
     public boolean equals(Object o) {

@@ -7,57 +7,45 @@ import java.util.List;
 
 public class Account implements Serializable {
     private static final long serialVersionUID = 1;
-    private String name;
-    private String lastName;
+    private String nameAndLastName;
     private String username;
     private String password;
     private int dateOfBirth;
     private long id;
     private long phoneNumber;
     private File personalLog;
-    private File personalPicture;
     private List<BankAccount> accountsList;
     private boolean verification;
 
     //constructor
-    public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber, File personalLog, File personalPicture, boolean verification) {
-        this.username = "H_"+username;
+    public Account(String nameAndLastName, String username, String password, int dateOfBirth, long id, long phoneNumber, File personalLog, boolean verification) {
+        this.username = username;
         this.password = password;
-        this.name = name;
-        this.lastName = lastName;
+        this.nameAndLastName = nameAndLastName;
         this.dateOfBirth = dateOfBirth;
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.personalLog = personalLog;
-        this.personalPicture = personalPicture;
         this.accountsList = new ArrayList<>();
         this.verification = verification;
+        (new File(".\\systemFiles\\bills\\"+username)).mkdir();
     }
 
-    public Account(String name, String lastName, String username, String password, int dateOfBirth, long id, long phoneNumber) {
-        this(name, lastName, username, password, dateOfBirth, id, phoneNumber, new File(".\\systemFiles\\userLog\\" + username + ".txt"), new File(".\\systemFiles\\userPicture\\" + username + ".png"), true);
+    public Account(String nameAndLastName, String username, String password, int dateOfBirth, long id, long phoneNumber) {
+        this(nameAndLastName, username, password, dateOfBirth, id, phoneNumber, new File(".\\systemFiles\\userLog\\" + username + ".txt"), true);
     }
 
     public Account() {
-        this("defaultName", "defaultLastName", "defaultUserName", "1234", 1350_1_1, 1, 1);
+        this("defaultName", "defaultUserName", "1234", 1350_01_01, 1, 1);
     }
 
-    // Getter and Setter for name
-    public String getName() {
-        return name;
+    // Getter and Setter for nameAndLastName
+    public String getNameAndLastName() {
+        return nameAndLastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // Getter and Setter for lastName
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNameAndLastName(String nameAndLastName) {
+        this.nameAndLastName = nameAndLastName;
     }
 
     // Getter and Setter for username
@@ -112,15 +100,6 @@ public class Account implements Serializable {
 
     public void setPersonalLog(File personalLog) {
         this.personalLog = personalLog;
-    }
-
-    // Getter and Setter for personalPicture
-    public File getPersonalPicture() {
-        return personalPicture;
-    }
-
-    public void setPersonalPicture(File personalPicture) {
-        this.personalPicture = personalPicture;
     }
 
     // Getter and Setter for accountsList

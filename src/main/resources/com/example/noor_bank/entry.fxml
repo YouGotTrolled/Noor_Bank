@@ -66,6 +66,7 @@
                     </graphic></Button>
                 <Label fx:id="er3N" alignment="CENTER" layoutX="90.0" layoutY="260.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
                 <Label fx:id="er3I" alignment="CENTER" layoutX="90.0" layoutY="325.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" />
+            <Label fx:id="er3I1" alignment="CENTER" layoutX="90.0" layoutY="459.0" prefHeight="20.0" prefWidth="300.0" textFill="RED" AnchorPane.bottomAnchor="60.80000000000001" AnchorPane.topAnchor="459.0" />
             </children>
         </AnchorPane>
         <AnchorPane fx:id="AnR" layoutX="480.0" minHeight="540.0" minWidth="480.0" prefHeight="540.0" prefWidth="480.0" style="-fx-background-color: #C8DAE5;">
@@ -107,11 +108,12 @@
                 </Label>
                 <Label fx:id="erN" alignment="CENTER" layoutX="115.0" layoutY="230.0" prefHeight="25.0" prefWidth="250.0" textFill="RED" />
                 <Label fx:id="erP" alignment="CENTER" layoutX="115.0" layoutY="302.0" prefHeight="20.0" prefWidth="250.0" textFill="RED" />
+            <Label fx:id="erP1" alignment="CENTER" layoutX="115.0" layoutY="494.0" prefHeight="20.0" prefWidth="250.0" textFill="RED" AnchorPane.bottomAnchor="26.0" AnchorPane.topAnchor="494.0" />
             </children>
         </AnchorPane>
         <AnchorPane fx:id="AnL1" minHeight="540.0" minWidth="480.0" prefHeight="540.0" prefWidth="0.0" style="-fx-background-color: #C8DAE5;">
             <children>
-                <TextField fx:id="lastname" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="155.0" prefHeight="30.0" prefWidth="300.0" promptText="نام خانوادگی" />
+                <TextField fx:id="dateOfBirth" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="155.0" prefHeight="30.0" prefWidth="300.0" promptText="تاریخ تولد/نمونه:1403/12/28" />
                 <TextField fx:id="username" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="320.0" prefHeight="30.0" prefWidth="300.0" promptText="نام کاربری" />
                 <Button fx:id="sign" layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#signIN" prefHeight="30.0" prefWidth="250.0" text="عضویت" textFill="#e5ff00">
                     <font>
@@ -149,7 +151,7 @@
                         </LinearGradient>
                     </textFill>
                 </Label>
-                <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0" promptText="نام" />
+                <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0" promptText="نام و نام خانوادگی" />
                 <TextField fx:id="id" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="210.0" prefHeight="30.0" prefWidth="300.0" promptText="کد ملی" />
                 <TextField fx:id="textpas" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" promptText="رمز عبور" />
                 <PasswordField fx:id="pas" alignment="CENTER_RIGHT" layoutX="90.0" layoutY="375.0" prefHeight="30.0" prefWidth="300.0" promptText="رمز عبور" />
@@ -169,7 +171,7 @@
                     </font>
                 </Label>
                 <Label fx:id="ername" alignment="CENTER" layoutX="90.0" layoutY="135.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
-                <Label fx:id="erlastname" alignment="CENTER" layoutX="90.0" layoutY="190.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
+                <Label fx:id="erdateOfBirth" alignment="CENTER" layoutX="90.0" layoutY="190.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
                 <Label fx:id="erid" alignment="CENTER" layoutX="90.0" layoutY="245.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
                 <Label fx:id="erusername" alignment="CENTER" layoutX="90.0" layoutY="355.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
                 <Label fx:id="erphone" alignment="CENTER" layoutX="90.0" layoutY="300.0" prefHeight="15.0" prefWidth="300.0" textFill="RED" />
@@ -194,6 +196,9 @@
                             </font>
                         </Label>
                     </graphic>
+               <font>
+                  <Font size="24.0" />
+               </font>
                 </Button>
             <Button id="B3" layoutX="140.0" layoutY="457.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="50.0" prefWidth="200.0" textFill="#e1ff00" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
                <graphic>

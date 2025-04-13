@@ -1,71 +1,52 @@
 package com.example.noor_bank;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount implements Serializable {
     private static final long serialVersionUID = 1;
-    private static long numberOfAccounts;
-    private String username;
-    private String password;
-    private List<Account> owner;
+    public static long numberOfAccounts = 0;
+    private Account owner;
     private long accountNumberId;
     private String shaba;
-    private List<Card> cards;
+    private Card cards;
     private long balance;
     private float interest;
     private List<Notification> notifications;
+    private File bill;
 
     static {
-        //load numberOfAccounts
+
     }
 
     //constructor
-    public BankAccount(String username, String password, List<Account> owner, float interest) {
-        this.username = username;
-        this.password = password;
+    public BankAccount(Account owner, float interest) {
         this.owner = owner;
         this.accountNumberId = 100000000000L + numberOfAccounts++;
         this.shaba = "IR000000000000" + accountNumberId;
-        this.cards = new ArrayList<>();
+        this.cards = new Card(this);
         this.interest = interest;
         this.notifications = new ArrayList<>();
+        this.balance = 10_000;
         notifications.add(new Notification("به بانک نور خوش امدید"));
     }
 
-    public BankAccount(String username, String password, Account owner) {
-        this(username, password, List.of(owner), 0);
-    }
-
     public BankAccount() {
-        this("defaultUserName", "1234", new Account());
-    }
-
-    // Getter and Setter for username
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    // Getter and Setter for password
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this(new Account(),0);
     }
 
     // Getter and Setter for owner
-    public List<Account> getOwner() {
+    public Account getOwner() {
         return owner;
     }
 
-    public void setOwner(List<Account> owner) {
+    public void setOwner(Account owner) {
         this.owner = owner;
     }
 
@@ -88,11 +69,11 @@ public class BankAccount implements Serializable {
     }
 
     // Getter and Setter for cards
-    public List<Card> getCards() {
+    public Card getCards() {
         return cards;
     }
 
-    public void setCards(List<Card> cards) {
+    public void setCards(Card cards) {
         this.cards = cards;
     }
 
@@ -123,20 +104,29 @@ public class BankAccount implements Serializable {
         this.notifications = notifications;
     }
 
+    // Getter and Setter for bill
+    public File getBill() {
+        return bill;
+    }
+
+    public void setBill(File bill) {
+        this.bill = bill;
+    }
+
     //methods
     public String toString() {
-        return username;
+        return "BA of "+owner.getNameAndLastName();
     }
 
     public boolean equals(Object o) {
         boolean result = false;
         if (o instanceof BankAccount)
-            result = username.equals(((BankAccount) o).getUsername());
+            result = accountNumberId==((BankAccount) o).getAccountNumberId();
         return result;
     }
 
     public int hashCode() {
-        return username.hashCode();
+        return shaba.hashCode();
     }
 
     public synchronized void spendBalance(long amount) throws NotEnoughMoney {
@@ -144,11 +134,25 @@ public class BankAccount implements Serializable {
             throw new NotEnoughMoney();
         } else {
             balance = balance - amount;
+            try(PrintWriter writer=new PrintWriter(new FileOutputStream(bill.getAbsolutePath(),true))){
+                writer.write("برداشت از حساب به مقدار "+amount+" در تاریخ "+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public void notificationRead(int index){
         notifications.get(index).setRead(true);
+    }
+
+    public synchronized void addToBalance(long amount){
+        balance=balance+amount;
+        try(PrintWriter writer=new PrintWriter(new FileOutputStream(bill.getAbsolutePath(),true))){
+            writer.write("واریز به حساب به مقدار "+amount+" در تاریخ "+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public synchronized void checkInterest(){

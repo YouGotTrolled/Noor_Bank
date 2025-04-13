@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" styleClass="not-classy-labell" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.noor_bank.editinfo">
+   <children>
+      <AnchorPane layoutX="114.0" layoutY="237.0" prefHeight="720.0" prefWidth="500.0" style="-fx-background-color: #1E2C31;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="150.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="185.0">
+               <image>
+                  <Image url="@../../../logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="nameAndLastName" alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="40.0" prefWidth="250.0" promptText="نام و نام خانوادگی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@../st.css" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="200.0" />
+      <TextField fx:id="password" alignment="CENTER_RIGHT" layoutX="234.4" layoutY="630.4" prefHeight="40.0" prefWidth="250.0" promptText="رمز عبور" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@../st.css" AnchorPane.rightAnchor="79.99999999999997" AnchorPane.topAnchor="440.0" />
+      <TextField fx:id="id" alignment="CENTER_RIGHT" layoutX="234.4" layoutY="630.4" prefHeight="40.0" prefWidth="250.0" promptText="کد ملی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@../st.css" AnchorPane.rightAnchor="79.99999999999997" AnchorPane.topAnchor="320.0" />
+      <TextField fx:id="rePassword" alignment="CENTER_RIGHT" layoutX="244.4" layoutY="640.4" prefHeight="40.0" prefWidth="250.0" promptText="تکرار رمز عبور" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@../st.css" visible="false" AnchorPane.leftAnchor="629.6" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="440.0" />
+      <TextField fx:id="dateOfBirth" alignment="CENTER_RIGHT" layoutX="244.4" layoutY="640.4" prefHeight="40.0" prefWidth="250.0" promptText="تاریخ تولد" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@../st.css" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="320.0" />
+      <TextField fx:id="phoneNumber" alignment="CENTER_RIGHT" layoutX="244.4" layoutY="640.4" prefHeight="40.0" prefWidth="250.0" promptText="شماره تماس" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@../st.css" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="200.0" />
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#submit" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@../st.css" text="ثبت اطلاعات" AnchorPane.leftAnchor="630.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="580.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@../st.css" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" scaleX="2.5" scaleY="2.5" />
+         </graphic>
+      </Button>
+      <Label fx:id="phoneNumberError" alignment="TOP_RIGHT" layoutX="20.0" layoutY="20.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" AnchorPane.leftAnchor="654.0" AnchorPane.topAnchor="260.0" />
+      <Label fx:id="nameAndLastNameError" alignment="TOP_RIGHT" layoutX="30.0" layoutY="30.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="260.0" />
+      <Label fx:id="idError" alignment="TOP_RIGHT" layoutX="30.0" layoutY="30.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="380.0" />
+      <Label fx:id="passwordError" alignment="TOP_RIGHT" layoutX="30.0" layoutY="30.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="500.0" />
+      <Label fx:id="rePasswordError" alignment="TOP_RIGHT" layoutX="30.0" layoutY="30.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" AnchorPane.leftAnchor="654.0" AnchorPane.topAnchor="500.0" />
+      <Label fx:id="dateOfBirthError" alignment="TOP_RIGHT" layoutX="30.0" layoutY="30.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" AnchorPane.leftAnchor="654.0" AnchorPane.topAnchor="380.0" />
+   </children>
+   <stylesheets>
+      <URL value="@st2.css" />
+      <URL value="@st.css" />
+      <URL value="@buttons.css" />
+   </stylesheets>
+</AnchorPane>

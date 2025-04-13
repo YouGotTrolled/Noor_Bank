@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.noor_bank.ChooseBankAccount">
+   <children>
+      <AnchorPane prefHeight="100.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;">
+         <children>
+            <Button layoutX="35.0" layoutY="38.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" stylesheets="@st2.css" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" scaleX="3.0" scaleY="3.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </FontAwesomeIcon>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="626.0" layoutY="203.0" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #1E2C31; -fx-font-size: 30;" styleClass="back-button" text="انتخاب حساب" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="450.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+         <stylesheets>
+            <URL value="@st2.css" />
+            <URL value="@st.css" />
+         </stylesheets>
+      </Label>
+      <Button alignment="CENTER" layoutX="158.0" layoutY="364.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #1E2C31; -fx-font-size: 30;" text="سپرده کوتاه مدت" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="375.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <stylesheets>
+            <URL value="@st2.css" />
+            <URL value="@st.css" />
+         </stylesheets>
+      </Button>
+      <Button alignment="CENTER" layoutX="389.0" layoutY="180.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #1E2C31; -fx-font-size: 30;" text="سپرده بلند مدت" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="375.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <stylesheets>
+            <URL value="@st2.css" />
+            <URL value="@st.css" />
+         </stylesheets>
+      </Button>
+      <Button alignment="CENTER" layoutX="450.0" layoutY="190.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #1E2C31; -fx-font-size: 30;" text="قرض الحسنه جاری" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="375.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <stylesheets>
+            <URL value="@st2.css" />
+            <URL value="@st.css" />
+         </stylesheets>
+      </Button>
+      <Label alignment="CENTER" layoutX="636.0" layoutY="506.0" prefHeight="80.0" style="-fx-font-size: 18; -fx-background-color: #C8DAE5;" styleClass="back-button2" text="نوع حساب مورد نظر خود را انتخاب نمایید." AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="200.0">
+         <stylesheets>
+            <URL value="@st2.css" />
+            <URL value="@st.css" />
+         </stylesheets></Label>
+      <Button layoutX="1004.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: #314953;" text="ندارید؟ بسازید." textFill="RED" AnchorPane.rightAnchor="187.2" AnchorPane.topAnchor="598.4">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="1014.0" layoutY="598.0" mnemonicParsing="false" style="-fx-background-color: #314953;" text="ندارید؟ بسازید." textFill="RED" AnchorPane.rightAnchor="967.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="1014.0" layoutY="598.0" mnemonicParsing="false" style="-fx-background-color: #314953;" text="ندارید؟ بسازید." textFill="RED" AnchorPane.rightAnchor="575.2" AnchorPane.topAnchor="598.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

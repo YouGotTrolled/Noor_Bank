@@ -39,7 +39,7 @@ public class entry {
     @FXML
     private TextField name;
     @FXML
-    private TextField lastname;
+    private TextField dateOfBirth;
     @FXML
     private TextField id;
     @FXML
@@ -53,7 +53,7 @@ public class entry {
     @FXML
     private Label ername;
     @FXML
-    private Label erlastname;
+    private Label erdateOfBirth;
     @FXML
     private Label erid;
     @FXML
@@ -80,6 +80,8 @@ public class entry {
     private Label er3N;
     @FXML
     private Label er3I;
+    @FXML
+    private Label erP1;
     @FXML
     private TextField Tepas1;
     @FXML
@@ -114,6 +116,8 @@ public class entry {
     private Button back1;
     @FXML
     private Label Lforget;
+    @FXML
+    private Label er3I1;
     @FXML
     private Button login2;
     @FXML
@@ -212,10 +216,10 @@ public class entry {
         name.setLayoutY(AnL1.getPrefHeight()*5/27);
         name.setPrefHeight(AnL1.getPrefHeight()/18);
 
-        lastname.setLayoutX(AnL1.getPrefWidth()/2-name.getPrefWidth()/2);
-        lastname.setPrefWidth(AnL1.getPrefWidth()*5/8);
-        lastname.setLayoutY(AnL1.getPrefHeight()*5/27 +  AnL1.getPrefHeight()*11/108);
-        lastname.setPrefHeight(AnL1.getPrefHeight()/18);
+        dateOfBirth.setLayoutX(AnL1.getPrefWidth()/2-name.getPrefWidth()/2);
+        dateOfBirth.setPrefWidth(AnL1.getPrefWidth()*5/8);
+        dateOfBirth.setLayoutY(AnL1.getPrefHeight()*5/27 +  AnL1.getPrefHeight()*11/108);
+        dateOfBirth.setPrefHeight(AnL1.getPrefHeight()/18);
 
         id.setLayoutX(AnL1.getPrefWidth()/2-name.getPrefWidth()/2);
         id.setPrefWidth(AnL1.getPrefWidth()*5/8);
@@ -258,10 +262,10 @@ public class entry {
         ername.setLayoutY(AnL1.getPrefHeight()/4 + 0*AnL1.getPrefHeight()*11/108);
         ername.setPrefHeight(AnL1.getPrefHeight()/36);
 
-        erlastname.setLayoutX(AnL1.getPrefWidth()/2-name.getPrefWidth()/2);
-        erlastname.setPrefWidth(AnL1.getPrefWidth()*5/8);
-        erlastname.setLayoutY(AnL1.getPrefHeight()/4 + 1*AnL1.getPrefHeight()*11/108);
-        erlastname.setPrefHeight(AnL1.getPrefHeight()/36);
+        erdateOfBirth.setLayoutX(AnL1.getPrefWidth()/2-name.getPrefWidth()/2);
+        erdateOfBirth.setPrefWidth(AnL1.getPrefWidth()*5/8);
+        erdateOfBirth.setLayoutY(AnL1.getPrefHeight()/4 + 1*AnL1.getPrefHeight()*11/108);
+        erdateOfBirth.setPrefHeight(AnL1.getPrefHeight()/36);
 
         erid.setLayoutX(AnL1.getPrefWidth()/2-name.getPrefWidth()/2);
         erid.setPrefWidth(AnL1.getPrefWidth()*5/8);
@@ -447,181 +451,78 @@ public class entry {
         else {
             tt1 = Tepas1.getText();
         }
-        boolean BB = control.checkLoginuser(Lusername.getText() , tt1);
-        if(BB){
-            control.changePage(event);
-        }
-        else {
-            int er2 = control.errorcheckLoginuser();
-            if(er2==1){
-                erN.setText("نام کاربری خود را وارد کنید");
-            }
-            else if(er2==2){
-                erN.setText("حسابی با این نام کاربری وجود ندارد");
-            }
-            else if (er2==3){
-                erP.setText("رمز عبور اشتباه است");
-            }
-            else {
-                // خطای ناشناخته
-            }
+        String[] error=Noor.serverSideOperator.checkLogIn(Lusername.getText(),tt1);
+        if(error[0].equals("enter")){
+            Noor.operator.goTo("chooseBankAccount",event);
+        }else{
+            erP1.setText(error[0]);
+            erN.setText(error[1]);
+            erP.setText(error[2]);
+            Lusername.clear();
+            Lpas.clear();
+            Tepas1.clear();
         }
     }
 
     String tt2 = "";
     String tt3 = "";
-    public void signIN(ActionEvent event) throws Exception {
+    public void signIN(ActionEvent event){
+        //
         if(pas.isVisible()){
             tt2 = pas.getText();
-        }
-        else {
+        }else {
             tt2 = textpas.getText();
         }
         if (pas2.isVisible()){
             tt3 = pas2.getText();
-        }
-        else {
+        }else {
             tt3 = textpas2.getText();
         }
-        boolean AA = control.checknewuser(name.getText() , lastname.getText() , username.getText() , phonenumber.getText() , id.getText() , tt2 , tt3);
-        if(AA){
-            control.sign();
-            control.changePage(event);
-        }
-        else{
-            int er = control.erroreNewuser();
-            error(er);
-            System.out.println(er);
-        }
-    }
-    public void error(int er){
-        int er2 = er;
-        if(er2%10==0){
-            ername.setText("");
-        }
-        else if(er2%10==9){
-            ername.setText("نام خود را وارد کنید");
-        }
-        else  if(er2%10==1){
-            ername.setText("فقط حروف فارسی مجاز است");
-        }
-        er2=er2/10;
-
-        if(er2%10==0){
-            erlastname.setText("");
-        }
-        else if(er2%10==9){
-            erlastname.setText("نام خانوادگی خود را وارد کنید");
-        }
-        else if(er2%10==1){
-            erlastname.setText("فقط حروف فارسی مجاز است");
-        }
-        er2=er2/10;
-
-        if(er2%10==0){
-            erusername.setText("");
-        }
-        else if(er2%10==9){
-            erusername.setText("نام کاربری را وارد کنید");
-        }
-        else if(er2%10==1){
-            erusername.setText("نام کابری فقط حروف بزرگ و کوچک انگلیسی '@' '#' '.'  مجاز است");
-        }
-        else if(er2%10==2){
-            erusername.setText("نام کابری تکراری است");
-        }
-        er2=er2/10;
-
-        if(er2%10==0){
-            erpas1.setText("");
-        }
-        else if(er2%10==9){
-            erpas1.setText("رمز خود را وارد کنید");
-        }
-        else if(er2%10==8){
-            erpas1.setText("رمز فقط حروف بزرگ و کوچک انگلیسی و عدد مجاز است");
-        }
-        else if(er2%10==1){
-            erpas1.setText("رمز حروف کوچک انگلیسی ندارد");
-        }
-        else if(er2%10==2){
-            erpas1.setText("رمز حروف بزرگ انگلیسی ندارد");
-        }
-        else if(er2%10==3){
-            erpas1.setText("رمز حروف کوچک و بزرگ انگلیسی ندارد");
-        }
-        else if(er2%10==4){
-            erpas1.setText("رمز عدد ندارد");
-        }
-        else if(er2%10==5){
-            erpas1.setText("رمز عدد و حروف کوچک انگلیسی ندارد");
-        }
-        else if(er2%10==6){
-            erpas1.setText("رمز عدد و حروف بزرگ انگلیسی ندارد");
-        }
-        er2=er2/10;
-
-        if(er2%10==0){
-            erid.setText("");
-        }
-        else if(er2%10==9){
-            erid.setText("کد ملی را وارد کنید");
-        }
-        else if(er2%10==1){
-            erid.setText("کد ملی را درست وارد کنید");
-        }
-        er2=er2/10;
-
-        if(er2%10==0){
-            erphone.setText("");
-        }
-        else if(er2%10==9){
-            erphone.setText("شماره تلفن خود را وارد کنید");
-        }
-        else if(er2%10==1){
-            erphone.setText("شماره تلفن را درست وارد کنید");
-        }
-        er2=er2/10;
-        if(er2%10==9){
-            erpas2.setText("تکرار رمز عبور با رمز عبور یکی نیست");
-        }
-        else {
-            erpas2.setText("");
+        //
+        String[] error = Noor.serverSideOperator.accountSignUp(username.getText(),tt2,tt3, name.getText(), dateOfBirth.getText(),id.getText(),phonenumber.getText());
+        if(error[0]==null){
+            Noor.operator.goTo("chooseBankAccount",event);
+        }else {
+            System.out.println(error[0]);
+            ername.setText(error[1]);
+            if (error[1]!=null)
+                name.clear();
+            erusername.setText(error[2]);
+            if (error[2]!=null)
+                username.clear();
+            erpas1.setText(error[3]);
+            if (error[3]!=null) {
+                pas.clear();
+                textpas.clear();
+            }
+            erpas2.setText(error[4]);
+            if (error[4]!=null){
+                pas2.clear();
+                textpas2.clear();
+            }
+            erid.setText(error[5]);
+            if (error[5]!=null)
+                id.clear();
+            erphone.setText(error[6]);
+            if (error[6]!=null)
+                phonenumber.clear();
+            erdateOfBirth.setText(error[7]);
+            if (error[7]!=null)
+                dateOfBirth.clear();
         }
     }
-
-//    public void nextpage() throws IOException {
-//        FXMLLoader fx = new FXMLLoader(getClass().getResource("root2.fxml"));
-//        Parent root = fx.load();
-//        root.minWidth(960);
-//        root.minHeight(540);
-//        Scene scene = new Scene(root);
-//        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-//        Stage stage = (Stage) root.getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
 
     public void login2(ActionEvent event) throws Exception{
-        boolean CC = control.checkLoginuser(username2.getText() , id2.getText());
-        if(CC){
-            control.changePage(event);
-        }
-        else {
-            int er3 = control.errorcheckLoginuser();
-            if(er3==1){
-                er3N.setText("نام کاربری خود را وارد کنید");
-            }
-            else if(er3==2){
-                er3N.setText("حسابی با این نام کاربری وجود ندارد");
-            }
-            else if (er3==3){
-                er3N.setText("");
-                er3I.setText("کد ملی اشتباه است");
-            }
-            else {
-                // خطای ناشناخته
-            }
+        String[] error=Noor.serverSideOperator.checkLogInF(username2.getText(),id2.getText());
+        if(error[0].equals("enter")){
+            Noor.operator.goTo("chooseBankAccount",event);
+        }else{
+            System.out.println(error[0]);
+            er3I1.setText(error[0]);
+            er3N.setText(error[1]);
+            er3I.setText(error[2]);
+            username2.clear();
+            id2.clear();
         }
     }
 
@@ -671,7 +572,7 @@ public class entry {
             Lpas.setText(temp4);
         }
     }
-    // disable :  فعال یا غیر فعال کردن
+
     String temp5 = "";
     public void checkbox2(){
         if(pas.isVisible()){

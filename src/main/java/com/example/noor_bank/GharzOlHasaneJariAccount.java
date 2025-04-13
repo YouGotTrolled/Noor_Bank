@@ -1,5 +1,6 @@
 package com.example.noor_bank;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +10,10 @@ public class GharzOlHasaneJariAccount extends BankAccount {
     private static final long serialVersionUID = 1;
 
     //constructor
-    public GharzOlHasaneJariAccount(String username, String password, List<Account> owner) {
-        super("G_"+username, password, owner, 0);
+    public GharzOlHasaneJariAccount(Account owner) {
+        super(owner, 0);
         this.checkList = new ArrayList<>();
-    }
-
-    public GharzOlHasaneJariAccount(String username, String password, Account owner) {
-        this(username, password, List.of(owner));
+        this.setBill(new File(".\\systemFiles\\bills\\" + getOwner().getUsername() + "\\G.txt"));
     }
 
     // Getter and Setter for loan
@@ -38,7 +36,7 @@ public class GharzOlHasaneJariAccount extends BankAccount {
 
     //methods
     public String toString() {
-        return "GharzOlHasaneJariAccount acc " + this.getUsername();
+        return "GharzOlHasaneJariAccount acc " + this.getOwner().getNameAndLastName();
     }
 
     public synchronized void checkLoan(int todayDate){
@@ -64,6 +62,25 @@ public class GharzOlHasaneJariAccount extends BankAccount {
                         loan=null;
                 } catch (NotEnoughMoney e) {
                     System.out.println("no money");
+                    getNotifications().add(new Notification("پول نداری"));
+                }
+            }
+        }
+    }
+
+    public synchronized void checkCheck(int todayDate){
+        if(!checkList.isEmpty()) {
+            for (Check check : checkList) {
+                if (todayDate>=check.getDate()){
+                    try{
+                        check.getFrom().spendBalance(check.getAmount());
+                        check.getTo().addToBalance(check.getAmount());
+                        checkList.remove(check);
+                    } catch (NotEnoughMoney e) {
+                        System.out.println("no money");
+                        check.getFrom().getNotifications().add(new Notification("پول برای چک نداری"));
+                        check.getTo().getNotifications().add(new Notification("چک شما برگشت خورد"));
+                    }
                 }
             }
         }

@@ -118,6 +118,7 @@ public class ClientSideOperator {
         scene.setOnMouseReleased((MouseEvent event) -> stage.setOpacity(1));
     }
     public void closeTheApp(){
+        Noor.serverSideOperator.saveAllAccounts();
         System.exit(0);
     }
 }

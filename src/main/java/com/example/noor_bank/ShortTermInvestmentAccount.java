@@ -1,5 +1,6 @@
 package com.example.noor_bank;
 
+import java.io.File;
 import java.util.List;
 
 public class ShortTermInvestmentAccount extends BankAccount {
@@ -7,12 +8,9 @@ public class ShortTermInvestmentAccount extends BankAccount {
     private Loan loan;
 
     //constructor
-    public ShortTermInvestmentAccount(String username, String password, List<Account> owner) {
-        super("S_"+username, password, owner, 2.5f);
-    }
-
-    public ShortTermInvestmentAccount(String username, String password, Account owner) {
-        this(username, password, List.of(owner));
+    public ShortTermInvestmentAccount(Account owner) {
+        super(owner, 2.5f);
+        this.setBill(new File(".\\systemFiles\\bills\\" + getOwner().getUsername() + "\\S.txt"));
     }
 
     // Getter and Setter for loan
@@ -26,7 +24,7 @@ public class ShortTermInvestmentAccount extends BankAccount {
 
     //methods
     public String toString() {
-        return "ShortTermInvestmentAccount acc " + this.getUsername();
+        return "ShortTermInvestmentAccount acc " + this.getOwner().getNameAndLastName();
     }
 
     public synchronized void checkLoan(int todayDate){
